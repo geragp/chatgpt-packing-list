@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "packing_list#index"
+
+  post '/packing_list', to: 'packing_list#packing_list'
 end

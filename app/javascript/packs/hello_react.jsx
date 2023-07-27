@@ -3,24 +3,21 @@
 // of the page.
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import PropTypes from 'prop-types'
-
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
-
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
-}
+import App from '../components/App'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
+  const root = createRoot(
+    document.body.appendChild(document.createElement("div"))
+  );
+  root.render(
+    <Router>
+      <Routes>
+        <Route path="*" element={<App />}/>
+      </Routes>
+    </Router>
   )
 })
